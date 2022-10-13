@@ -1,0 +1,26 @@
+body {
+    background-color: beige;
+    margin-left: 10%;
+}
+
+
+h1 {
+    font-size:110%;
+}
+
+
+time {
+    font-size:90%;
+}
+
+
+section {
+    font-family: Verdana, Verdana, Tahoma, sans-serif;
+    line-height: 50%;
+}
+
+.tab {
+    margin-left: 3%;
+}
+
+
