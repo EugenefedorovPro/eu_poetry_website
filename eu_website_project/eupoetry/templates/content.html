@@ -1,0 +1,15 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+  <link rel="stylesheet" href="{% static 'styles_0.css' %}">
+  <head>
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <div id = "rand_verse">
+    {% for i, word in list_of_lists_id_random_word %}
+    <span><a href = {{i}}>{{ word }}</a></span>
+    {%endfor%}
+    </div>
+  </body>
+</html>
