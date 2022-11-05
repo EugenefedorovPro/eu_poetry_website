@@ -1,4 +1,4 @@
 /poetry_site/
 .vscode/
-/__pycache__
+/eu_website_project/__pycache__
 /poetry_site_venv/
