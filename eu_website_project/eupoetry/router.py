@@ -4,3 +4,9 @@ class EupoetryRouter(object):
             return "verses"
         else:
             return None
+
+    def db_for_write(self, model, **hints):
+        if model._meta.app_label == "eupoetry":
+            return "verses"
+        else:
+            return None

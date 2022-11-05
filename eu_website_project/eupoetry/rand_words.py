@@ -1,11 +1,7 @@
 import sqlite3
 import random
-import json
+import string
 from pathlib import Path
-
-
-path_db = Path.cwd() / "verses.sqlite3"
-print("path_______", path_db)
 
 
 # connect to db and get a verse from the main db
@@ -16,20 +12,52 @@ def connect_to_dbsqlite3():
     return connect, cur
 
 
-def get_random_words():
-    connect, cur = connect_to_dbsqlite3()
-    all_ids = cur.execute("SELECT id_json FROM id_json_words").fetchall()
-    list_of_lists_id_random_word = []
-    for i_d in all_ids:
-        words = cur.execute(
-            "SELECT words FROM id_json_words WHERE id_json=?", i_d
-        ).fetchall()
-        words = json.loads(words[0][0])
-        random_word = words[random.randint(0, len(words) - 1)]
-        list_of_lists_id_random_word.append([i_d[0], random_word])
-    connect.close()
-    return list_of_lists_id_random_word
+connect, cur = connect_to_dbsqlite3()
 
 
-list_of_lists_id_random_word = get_random_words()
-print(list_of_lists_id_random_word)
+def get_list_ids():
+    quiry_id = "SELECT id FROM raw_verses"
+    list_ids = cur.execute(quiry_id).fetchall()
+    list_ids = [i_d[0] for i_d in list_ids]
+    return list_ids
+
+
+list_ids = get_list_ids()
+
+
+def get_list_str_words(list_ids):
+    list_str_words = []
+    for i_d in list_ids:
+        str_words = cur.execute(
+            "SELECT verses FROM raw_verses WHERE id={}".format(i_d)
+        ).fetchall()[0][0]
+        list_str_words.append(str_words.lower())
+    return list_str_words
+
+
+list_str_words = get_list_str_words(list_ids)
+
+
+def split_str_words(list_str_words):
+    list_split_words_punc = [
+        long_str.translate(str.maketrans("", "", string.punctuation + "-")).split()
+        for long_str in list_str_words
+    ]
+    return list_split_words_punc
+
+
+list_split_words = split_str_words(list_str_words)
+
+
+def get_rand_word():
+    rand_words = []
+    for list_words in list_split_words:
+        rand_number = random.randint(0, len(list_words) - 1)
+        word = [word for i, word in enumerate(list_words) if i == rand_number]
+        rand_words.append(word[0])
+    return rand_words
+
+
+rand_words = get_rand_word()
+
+connect.close()

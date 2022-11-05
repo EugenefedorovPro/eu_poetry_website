@@ -10,7 +10,6 @@ from django.db import models
 
 class RawVerses(models.Model):
     id = models.IntegerField(primary_key=True)
-    file_name = models.CharField(max_length=255)
     date_of_writing = models.DateField(blank=True, null=True)
     title = models.TextField(null=True)
     verses = models.TextField(max_length=50000, null=True)
@@ -18,25 +17,3 @@ class RawVerses(models.Model):
     class Meta:
         managed = False
         db_table = "raw_verses"
-
-
-class IdJsonWords(models.Model):
-    id_json = models.OneToOneField(
-        RawVerses, models.DO_NOTHING, db_column="id_json", primary_key=True
-    )
-    words = models.TextField(max_length=50000)
-
-    class Meta:
-        managed = False
-        db_table = "id_json_words"
-
-
-class IdWord(models.Model):
-    id_word = models.OneToOneField(
-        RawVerses, models.DO_NOTHING, db_column="id_word", primary_key=True
-    )
-    word = models.CharField(max_length=255)
-
-    class Meta:
-        managed = False
-        db_table = "id_word"

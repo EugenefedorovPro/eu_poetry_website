@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang='ru'>
+<link rel="stylesheet" href="{% static 'styles.css' %}">
+<head>
+    <title>verse</title>
+    <meta name="author" content="John Doe">
+    <meta name='viewport' content="width=device-width, initial-scale=1.0">
+    <meta charset='utf-8'>
+</head>
+<body>
+    {% load i18n %}
+    {% for item in verse %}
+    <p id="title_verse">{{ item.title }}</p>
+    <p id="full_verse">{{ item.verses|linebreaks }}</p>
+    <br>
+    {% language 'ru' %}
+    <i>{{ item.date_of_writing|date:"d M Y" }}</i>
+    {% endlanguage %}
+    <br>
+    {% endfor %}
+    <i>Евгений Проскуликов</i>
+    <div>
+        <br>
+        <button type ="button"><a id="button_link" href="back_to_content"><b>в начало</b></a></button>
+    </div>
+
+</body>
+</html>

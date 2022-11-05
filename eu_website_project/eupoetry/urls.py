@@ -4,7 +4,6 @@ from . import views
 
 urlpatterns = [
     path("", views.content, name="content"),
-    path("1/", views.avva, name="avva"),
-    path("bachinichego/", views.bachinichego, name="bachinichego"),
-    path("gdeyarostnej/", views.gdeyarostnej, name="gdeyarostnej"),
+    path("<int:verse_id>/", views.verse, name="verse"),
+    path("<int:no_use>/back_to_content", views.back_to_content, name="back_to_content"),
 ]
