@@ -14,6 +14,22 @@ class RawVerses(models.Model):
     title = models.TextField(null=True)
     verses = models.TextField(max_length=50000, null=True)
 
+    def __str__(self):
+        return self.title
+
     class Meta:
-        managed = False
+        managed = True
         db_table = "raw_verses"
+
+
+class EuPro(models.Model):
+    name = "Евгений Проскуликов"
+    id = models.IntegerField(primary_key=True)
+    fact = models.TextField(max_length=65535)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        managed = True
+        db_table = "eu_pro"

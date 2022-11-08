@@ -1,14 +1,6 @@
 from django.contrib import admin
-from . import models
+from .models import RawVerses, EuPro
 
 
-class RawVersesAdmin(admin.ModelAdmin):
-    fileds = ["date_of_writing", "id"]
-    # data_hierarchy = "date_of_writing"
-    # ordering = ("date_of_writing",)
-    pass
-
-
-admin.site.register(models.RawVerses, RawVersesAdmin)
-
-# Register your models here.
+admin.site.register(RawVerses)
+admin.site.register(EuPro)
