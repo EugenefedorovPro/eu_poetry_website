@@ -23,12 +23,12 @@ class RawVerses(models.Model):
 
 
 class EuPro(models.Model):
-    name = "Евгений Проскуликов"
     id = models.IntegerField(primary_key=True)
+    title = models.CharField(max_length=255, null=True, blank=True)
     fact = models.TextField(max_length=65535)
 
     def __str__(self):
-        return self.name
+        return str(self.id) + ". " + self.title
 
     class Meta:
         managed = True

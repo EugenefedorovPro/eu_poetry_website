@@ -68,6 +68,14 @@ button {
     background-color: lightgoldenrodyellow;
     color: darkslategray;
 }
+
+
+/* eupro */
+#eupro_text{
+    width: 60vw;
+}
+
+
 /* responsive elements */
 
 @media screen and (max-width: 1000px) {
@@ -86,11 +94,17 @@ button {
 
     #rand_verse {
         width:30vw;
+
     }
 
     i {
         width:40vw;
     }
+    
+    #eupro_text{
+        width: 70vw;
+    }
+
 }   
 
 @media screen and (max-width: 500px) {   
@@ -105,6 +119,10 @@ button {
 
     i {
         width:70vw;
+        }
+
+    #eupro_text{
+        width: 80vw;
     }
     
 }   
@@ -122,4 +140,9 @@ button {
     i {
         width:70vw;
     }
+
+    #eupro_text{
+        width: 80vw;
+    }
+
 }   

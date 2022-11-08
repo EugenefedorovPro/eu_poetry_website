@@ -2,8 +2,9 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
 from .rand_words import get_rand_word
-from .models import RawVerses
+from .models import RawVerses, EuPro
 from django.http import HttpResponseRedirect
+import random
 
 
 def content(request):
@@ -23,5 +24,14 @@ def verse(request, verse_id):
     return HttpResponse(template.render(context, request))
 
 
-def back_to_content(request, no_use):
+def eupro(request):
+    total_number_ids = EuPro.objects.all().count()
+    rand_id = random.randint(1, total_number_ids)
+    text = EuPro.objects.get(id=rand_id).fact
+    context = {"text": text}
+    template = loader.get_template("eupro.html")
+    return HttpResponse(template.render(context, request))
+
+
+def back_to_content(request):
     return HttpResponseRedirect("/eupoetry")

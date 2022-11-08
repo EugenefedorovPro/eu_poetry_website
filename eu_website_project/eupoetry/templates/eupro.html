@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang='ru'>
+<link rel="stylesheet" href="{% static 'styles.css' %}">
+<head>
+    <title>verse</title>
+    <meta name="author" content="John Doe">
+    <meta name='viewport' content="width=device-width, initial-scale=1.0">
+    <meta charset='utf-8'>
+</head>
+<body>
+    <div id="eupro_text">
+        <p>{{ text|linebreaks }}</p>
+    </div>
+    <div>
+        <br>
+        <button type ="button"><a id="button_link" href="back_to_content"><b>в начало</b></a></button>
+    </div>
+
+</body>
+</html>
