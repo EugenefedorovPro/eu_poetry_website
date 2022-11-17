@@ -4,14 +4,14 @@
   <link rel="stylesheet" href="{% static 'styles.css' %}">
   <head>
     <title>content page of verses</title>
-    <meta name="author" content="Евгений Проскуликов">
+    <meta name="Eugene Proskulikov" content="random verse">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
     <div id = "rand_verse">
-    {% for i, word in list_of_lists_id_random_word %}
-    <span><a href = {{i}}>{{ word }}</a></span>
+    {% for html_name, rand_word in html_name_rand_word %}
+    <span><a href = {{ html_name }}>{{ rand_word }}</a></span>
     {%endfor%}
     <p id="signature"><a href = "eupro">Евгений Проскуликов<a></p>
     </div>

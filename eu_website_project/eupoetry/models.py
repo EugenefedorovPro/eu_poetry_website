@@ -10,6 +10,7 @@ from django.db import models
 
 class RawVerses(models.Model):
     id = models.IntegerField(primary_key=True)
+    html_name = models.CharField(max_length=50)
     date_of_writing = models.DateField(blank=True, null=True)
     title = models.TextField(null=True)
     verses = models.TextField(max_length=50000, null=True)
