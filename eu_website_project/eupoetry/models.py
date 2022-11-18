@@ -9,7 +9,7 @@ from django.db import models
 
 
 class RawVerses(models.Model):
-    id = models.IntegerField(primary_key=True)
+    id = models.AutoField(primary_key=True)
     html_name = models.CharField(max_length=50)
     date_of_writing = models.DateField(blank=True, null=True)
     title = models.TextField(null=True)
@@ -24,7 +24,7 @@ class RawVerses(models.Model):
 
 
 class EuPro(models.Model):
-    id = models.IntegerField(primary_key=True)
+    id = models.AutoField(primary_key=True)
     title = models.CharField(max_length=255, null=True, blank=True)
     fact = models.TextField(max_length=65535)
 

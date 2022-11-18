@@ -8,7 +8,6 @@ import random
 
 
 def content(request):
-    print("______content hit")
     html_name_rand_word = RandWord.make_list_html_name_rand_word()
     template = loader.get_template("content.html")
     context = {"html_name_rand_word": html_name_rand_word}
@@ -23,7 +22,6 @@ def verse(request, html_name):
 
 
 def eupro(request):
-    print("___eupro is entered")
     all_ids = EuPro.objects.all().values_list("id")
     rand_id = random.choice(all_ids)[0]
     text = EuPro.objects.get(id=rand_id).fact

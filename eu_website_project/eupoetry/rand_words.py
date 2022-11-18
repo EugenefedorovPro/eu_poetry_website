@@ -12,7 +12,9 @@ class RandWord:
     @classmethod
     def split_str_words(cls, list_str_words):
         list_split_words_punc = [
-            long_str.translate(str.maketrans("", "", string.punctuation + "-")).split()
+            long_str.translate(
+                str.maketrans("", "", "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~...–…")
+            ).split()
             for long_str in list_str_words
         ]
         return list_split_words_punc
