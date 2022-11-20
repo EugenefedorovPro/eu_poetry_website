@@ -20,12 +20,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-e*(y330r$%udn=x=_myt+@918vqa64#z8ji4_cvla!6=o11dme"
+SECRET_KEY = "1234"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1", "testserver"]
+ALLOWED_HOSTS = []
+
+try:
+    from .local_settings import *
+except ImportError:
+    print("Error of importing local settings file")
 
 
 # Application definition
@@ -127,3 +132,5 @@ STATIC_URL = "/static/"
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+SESSION_COOKIE_SECURE = True
