@@ -1,9 +1,9 @@
 from django.shortcuts import render
+from django.http import HttpResponseRedirect
 from django.http import HttpResponse
 from django.template import loader
 from .rand_words import RandWord
 from .models import RawVerses, EuPro
-from django.http import HttpResponseRedirect
 import random
 
 
