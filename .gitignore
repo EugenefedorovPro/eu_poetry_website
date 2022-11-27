@@ -1,4 +1,13 @@
 /poetry_site/
 .vscode/
-/eu_website_project/__pycache__
+__pycache__/
 /poetry_site_venv/
+.*/__pycache__/.*
+__pycache__/*
+/__pycache__/
+__pycache__
+Copy*
+draft*
+local_settings.py
+sqlite3.exe
+verses/

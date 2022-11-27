@@ -1,14 +1,17 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="ru">
-  <link rel="stylesheet" href="{% static 'styles.css' %}">
   <head>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <script src="{% static 'operations.js' %}"></script>
     <title>content page of verses</title>
     <meta name="Eugene Proskulikov" content="random verse">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
+    <i id="my_alert_box">Обнови страницу, чтобы получить стихотворение, собранное из случайных слов</i>
+
     <div id = "rand_verse">
     {% for html_name, rand_word in html_name_rand_word %}
     <span><a href = {{ html_name }}>{{ rand_word }}</a></span>
