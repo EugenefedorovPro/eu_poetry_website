@@ -11,3 +11,4 @@ draft*
 local_settings.py
 sqlite3.exe
 verses/
+draft.js

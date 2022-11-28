@@ -3,14 +3,14 @@
 <html lang="ru">
   <head>
     <link rel="stylesheet" href="{% static 'styles.css' %}">
-    <script src="{% static 'operations.js' %}"></script>
+    {% comment %} <script src="{% static 'operations.js' %}"></script> {% endcomment %}
     <title>content page of verses</title>
     <meta name="Eugene Proskulikov" content="random verse">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
-    <i id="my_alert_box">Обнови страницу, чтобы получить стихотворение, собранное из случайных слов</i>
+    <i id="my_alert_box"></i>
 
     <div id = "rand_verse">
     {% for html_name, rand_word in html_name_rand_word %}
@@ -18,5 +18,7 @@
     {%endfor%}
     <p id="signature"><a href = "eupro">Евгений Проскуликов<a></p>
     </div>
+    <script src="{% static 'transparancy.js' %}"></script>
+
   </body>
 </html>
