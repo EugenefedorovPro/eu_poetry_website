@@ -31,4 +31,4 @@ def eupro(request):
 
 
 def back_to_content(request):
-    return HttpResponseRedirect("/eupoetry")
+    return HttpResponseRedirect("http://eupoetry.eu.pythonanywhere.com/")
