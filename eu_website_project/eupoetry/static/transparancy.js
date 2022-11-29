@@ -12,7 +12,7 @@ const list_of_timeouts = [
     initial_pause + 2*time_to_run_push_message,
     initial_pause + 3*time_to_run_push_message,
 ];
-let text_1 = "Обнови страницу, чтобы получить стихотворение, собранное из случайных слов"; 
+let text_1 = "Обнови страницу, чтобы собрать стихотворение из случайных слов"; 
 let text_2 = "Нажми на слово, чтобы перейти к неслучайному стихотворению"; 
 
 
