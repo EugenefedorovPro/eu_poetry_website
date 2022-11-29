@@ -30,5 +30,16 @@ def eupro(request):
     return HttpResponse(template.render(context, request))
 
 
+local_development = 1945
+
+try:
+    from eu_website_project.local_settings import local_development
+
+    if local_development == 2022:
+        root_url = "/eupoetry"
+except:
+    root_url = "http://eupoetry.eu.pythonanywhere.com/"
+
+
 def back_to_content(request):
-    return HttpResponseRedirect("http://eupoetry.eu.pythonanywhere.com/")
+    return HttpResponseRedirect(root_url)

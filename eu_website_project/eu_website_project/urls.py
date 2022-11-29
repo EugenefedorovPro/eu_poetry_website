@@ -17,8 +17,14 @@ from django.contrib import admin
 from django.urls import path, include
 
 
-urlpatterns = [
-    path("admin/", admin.site.urls),
-    path("", include("eupoetry.urls")),
-    # path("eupoetry/", include("eupoetry.urls")),
-]
+urlpatterns = [path("admin/", admin.site.urls)]
+
+local_development = 1945
+
+try:
+    from .local_settings import local_development
+
+    if local_development == 2022:
+        urlpatterns.append(path("eupoetry/", include("eupoetry.urls")))
+except:
+    urlpatterns.append(path("", include("eupoetry.urls")))
