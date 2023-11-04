@@ -1,10 +1,18 @@
-version: '3.4'
+version: '3.7'
 services:
-  django:
+  django_gunicorn:
     build:
       context: .
-    command: python manage.py runserver 0.0.0.0:8008
     ports:
       - "8008:8008"
     volumes:
       - .:/home/eugene
+  nginx:
+      build:
+        context: ./nginx
+      ports:
+        - "88:88"
+      volumes:
+        - .:/home/eugene
+      depends_on:
+        - django_gunicorn
