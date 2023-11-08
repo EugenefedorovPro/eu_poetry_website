@@ -1,0 +1,39 @@
+version: '3.7'
+services:
+  django_gunicorn:
+    image: eugene8pro/eupoetry:1.0
+    env_file:
+      - ./.env
+    environment:
+      - ENV=production 
+    volumes: 
+      - static_volume:/home/eugene/app/static/
+      - db_volume:/home/eugene/app/db/
+    ports:
+      - "8008:8008"
+
+  nginx:
+    build:
+      context: ./nginx_prod
+    env_file:
+      - ./.env
+    environment:
+      - ENV=production 
+    volumes: 
+      - static_volume:/home/eugene/app/static/
+    ports:
+      - "88:88"
+    depends_on:
+      - django_gunicorn
+
+volumes:
+  static_volume:
+  db_volume:
+    driver: local
+    driver_opts:
+      type: none
+      device: /home/eugene/Documents/eu_website_deploy/db
+      o: bind
+
+
+

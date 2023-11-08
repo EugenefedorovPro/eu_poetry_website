@@ -19,13 +19,25 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv("SECRET_KEY")
+if os.environ.get("ENV") == "development":
+    print("ENV:", os.environ.get("ENV"))
+    SECRET_KEY = '12345678'
+    print('SECRET_KEY:', SECRET_KEY)
+    DEBUG = True
+    print("DEBUG:", DEBUG)
+    ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS").split(",")
+    print("ALLOWED_HOSTS:", ALLOWED_HOSTS)
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv("DEBUG")
+elif os.environ.get("ENV") == "production":
+    print("ENV:", os.environ.get("ENV"))
+    SECRET_KEY = os.getenv("SECRET_KEY")
+    DEBUG = False
+    print("DEBUG:", DEBUG)
+    ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS").split(",")
+    print("ALLOWED_HOSTS:", ALLOWED_HOSTS)
 
-ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS").split(",")
+else:
+    raise Exception("ENV not set to development or production")
 
 
 # Application definition
@@ -77,12 +89,14 @@ WSGI_APPLICATION = "eu_website_project.wsgi.application"
 DATABASES = {
     "verses": {
         "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "verses.sqlite3",
+        "NAME": BASE_DIR / "db" / "verses.sqlite3",
     },
     "default": {
-        
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
     },
 }
+
 
 DATABASE_ROUTERS = ["eupoetry.router.EupoetryRouter"]
 
@@ -128,4 +142,7 @@ STATIC_URL = "/static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-SESSION_COOKIE_SECURE = True
+# CSRF_COOKIE_SECURE = False
+# SESSION_COOKIE_SECURE = False
+
+CSRF_TRUSTED_ORIGINS = ALLOWED_HOSTS
