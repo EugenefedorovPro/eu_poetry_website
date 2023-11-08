@@ -7,8 +7,8 @@ services:
     environment:
       - ENV=production 
     volumes: 
-      - static_volume:/home/eugene/app/static/
-      - db_volume:/home/eugene/app/db/
+      - static_volume:/home/eugene/static/
+      - db_volume:/home/eugene/db/
     ports:
       - "8008:8008"
 
@@ -16,11 +16,11 @@ services:
     build:
       context: ./nginx_prod
     env_file:
-      - ./.env
+      - ./.env # .env file is in .gitignore, it should be manually set in the same directory as docker-compose.yaml
     environment:
       - ENV=production 
     volumes: 
-      - static_volume:/home/eugene/app/static/
+      - static_volume:/home/eugene/static/
     ports:
       - "88:88"
     depends_on:
@@ -32,8 +32,5 @@ volumes:
     driver: local
     driver_opts:
       type: none
-      device: /home/eugene/Documents/eu_website_deploy/db
+      device: ./db
       o: bind
-
-
-
