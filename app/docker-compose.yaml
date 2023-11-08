@@ -4,7 +4,7 @@ services:
     build:
       context: .
     env_file:
-      - ./.env
+      - ../.env
     environment:
         - ENV=development
     ports:
@@ -13,9 +13,9 @@ services:
       - .:/home/eugene
   nginx:
       build:
-        context: ./nginx
+        context: nginx
       env_file:
-        - ./.env
+        - ../.env
       environment:
         - ENV=development
       ports:
