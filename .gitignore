@@ -1,3 +1,4 @@
-eu_website_project/local_settings.py
+.env
 .idea/
 __pycache__/
+Dockerfile

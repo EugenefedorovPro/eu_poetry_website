@@ -1,0 +1,26 @@
+version: '3.7'
+services:
+  django_gunicorn:
+    build:
+      context: .
+    env_file:
+      - ./.env
+    environment:
+        - ENV=development
+    ports:
+      - "8008:8008"
+    volumes:
+      - .:/home/eugene
+  nginx:
+      build:
+        context: ./nginx
+      env_file:
+        - ./.env
+      environment:
+        - ENV=development
+      ports:
+        - "88:88"
+      volumes:
+        - .:/home/eugene
+      depends_on:
+        - django_gunicorn
