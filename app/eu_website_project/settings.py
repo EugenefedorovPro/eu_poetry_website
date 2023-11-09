@@ -37,7 +37,15 @@ elif os.environ.get("ENV") == "production":
     print("ALLOWED_HOSTS:", ALLOWED_HOSTS)
 
 else:
-    raise Exception("ENV not set to development or production")
+    print("ENV not set to development or production, you launch dockerized app")
+    ALLOWED_HOSTS = ['0.0.0.0', 'http//0.0.0.0', 'http//0.0.0.0:8008', '0.0.0.0:8008',
+                     'http://eupoetry.kyiv.ua.local', 'http://eupoetry.kyiv.ua.local:88',
+                     'eupoetry.kyiv.ua.local', 'http://eupoetry.kyiv.ua.local:88/admin',
+                     'eupoetry.kyiv.ua.local:88/admin', 'http://eupoetry.kyiv.ua', 'eupoetry.kyiv.ua']
+    SECRET_KEY = '12345678'
+    print('SECRET_KEY:', SECRET_KEY)
+    DEBUG = True
+    print("DEBUG:", DEBUG)
 
 
 # Application definition

@@ -10,3 +10,10 @@ db directory
 nginx_prod directory
 - contains nginx.config for production
 - the only dif with dev is server_name eupoetry.kyiv.ua instead of eupoetry.kyiv.ua.local;
+
+
+How to clone one folder from git repository
+git clone -n --depth=1 --filter=tree:0 https://github.com/EugenefedorovPro/eu_poetry_website.git
+cd eu_poetry_website/
+git sparse-checkout set --no-cone eu_website_deploy
+git checkout
