@@ -22,7 +22,7 @@ services:
     volumes: 
       - static_volume:/home/eugene/static/
     ports:
-      - "88:88"
+      - "80:80"
     depends_on:
       - django_gunicorn
 

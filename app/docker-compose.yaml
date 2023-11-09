@@ -19,7 +19,7 @@ services:
       environment:
         - ENV=development
       ports:
-        - "88:88"
+        - "80:80"
       volumes:
         - .:/home/eugene
       depends_on:
