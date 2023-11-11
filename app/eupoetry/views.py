@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import reverse
 from django.http import HttpResponseRedirect
 from django.http import HttpResponse
 from django.template import loader
@@ -31,4 +31,5 @@ def eupro(request):
 
 
 def back_to_content(request):
-    return HttpResponseRedirect("/eupoetry")
+    url = reverse("content")
+    return HttpResponseRedirect(url)
