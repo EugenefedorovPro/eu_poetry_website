@@ -3,6 +3,8 @@ services:
   django_gunicorn:
     build:
       context: .
+    stdin_open: true
+    tty: true
     env_file:
       - ../.env
     environment:
@@ -19,7 +21,7 @@ services:
       environment:
         - ENV=development
       ports:
-        - "80:80"
+        - "8082:8082"
       volumes:
         - .:/home/eugene
       depends_on:

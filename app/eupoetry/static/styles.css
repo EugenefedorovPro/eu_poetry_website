@@ -31,11 +31,19 @@ a:active { text-decoration: none; }
 
 #rand_verse {
     width: 20vw;
-    /* border-style: solid; */
+}
+
+
+#rand_fact {
+	margin-top: 40px;
+    width: 40vw;
 }
 
 #signature {
+	margin-top: 40px;
     text-align: right;
+	font-style: italic;
+    width: 40vw;
 }
 
 
@@ -44,6 +52,7 @@ a:active { text-decoration: none; }
 
 #full_verse {
     width:70vw;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 i {

@@ -2,8 +2,9 @@
 <!DOCTYPE html>
 <html lang='ru'>
 <link rel="stylesheet" href="{% static 'styles.css' %}">
+<link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
 <head>
-    <title>verse</title>
+    <title>поэзия</title>
     <meta name="author" content="John Doe">
     <meta name='viewport' content="width=device-width, initial-scale=1.0">
     <meta charset='utf-8'>
@@ -12,7 +13,7 @@
     {% load i18n %}
     {% for item in verse %}
     <p id="title_verse">{{ item.title }}</p>
-    <p id="full_verse">{{ item.verses|linebreaks }}</p>
+	<p><pre id="full_verse">{{ item.verses }}</pre></p>
     <br>
     {% language 'ru' %}
     <i>{{ item.date_of_writing|date:"d M Y" }}</i>

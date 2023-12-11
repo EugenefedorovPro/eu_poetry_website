@@ -27,6 +27,8 @@ if os.environ.get("ENV") == "development":
     print("DEBUG:", DEBUG)
     ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS").split(",")
     print("ALLOWED_HOSTS:", ALLOWED_HOSTS)
+    CSRF_TRUSTED_ORIGINS = os.getenv("CSRF_TRUSTED_ORIGINS").split(",")
+    print("CSRF_TRUSTED_ORIGINS", CSRF_TRUSTED_ORIGINS)
 
 elif os.environ.get("ENV") == "production":
     print("ENV:", os.environ.get("ENV"))
@@ -35,7 +37,8 @@ elif os.environ.get("ENV") == "production":
     print("DEBUG:", DEBUG)
     ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS").split(",")
     print("ALLOWED_HOSTS:", ALLOWED_HOSTS)
-
+    CSRF_TRUSTED_ORIGINS = os.getenv("CSRF_TRUSTED_ORIGINS").split(",")
+    print("CSRF_TRUSTED_ORIGINS", CSRF_TRUSTED_ORIGINS)
 else:
     print("ENV not set to development or production, you launch dockerized app")
     ALLOWED_HOSTS = ['0.0.0.0', 'http//0.0.0.0', 'http//0.0.0.0:8008', '0.0.0.0:8008',
@@ -46,6 +49,8 @@ else:
     print('SECRET_KEY:', SECRET_KEY)
     DEBUG = True
     print("DEBUG:", DEBUG)
+    CSRF_TRUSTED_ORIGINS = ALLOWED_HOSTS
+    print("CSRF_TRUSTED_ORIGINS", CSRF_TRUSTED_ORIGINS)
 
 
 # Application definition
@@ -153,4 +158,4 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # CSRF_COOKIE_SECURE = False
 # SESSION_COOKIE_SECURE = False
 
-CSRF_TRUSTED_ORIGINS = ALLOWED_HOSTS
+# CSRF_TRUSTED_ORIGINS = ALLOWED_HOSTS
