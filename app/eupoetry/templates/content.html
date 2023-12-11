@@ -2,18 +2,34 @@
 <!DOCTYPE html>
 <html lang="ru">
   <link rel="stylesheet" href="{% static 'styles.css' %}">
+  <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
   <head>
-    <title>content page of verses</title>
+    <title>точка сборки</title>
     <meta name="Eugene Proskulikov" content="random verse">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
+
     <div id = "rand_verse">
-    {% for html_name, rand_word in html_name_rand_word %}
-    <span><a href = {{ html_name }}>{{ rand_word }}</a></span>
-    {%endfor%}
-    <p id="signature"><a href = "eupro">Евгений Проскуликов<a></p>
+	<h3>Поэзия</h3>
+		{% for html_name, rand_word in verse_html_name_rand_word %}
+			<span><a href = {{ html_name }}>{{ rand_word }}</a></span>
+		{%endfor%}
     </div>
+
+    <div id = "rand_fact">
+	<h3>Герменевтика</h3>
+		{% for html_name, rand_word in fact_html_name_rand_word %}
+			<span><a href = {{ html_name }}>{{ rand_word }}</a></span>
+		{%endfor%}
+
+    </div>
+
+	<div id="signature">
+		<p><a href = "eupro">Евгений Проскуликов<a></p>
+	</div>
+
+
   </body>
 </html>

@@ -10,6 +10,10 @@ class RawVersesAdmin(admin.ModelAdmin):
     list_display = ["title", "html_name", "date_of_writing"]
     search_fields = ["verses"]
 
+class EuProAdmin(admin.ModelAdmin):
+    list_display = ["title", "html_name", "date_of_writing", "fact"]
+    search_fields = ["title"]
 
 admin.site.register(RawVerses, RawVersesAdmin)
-admin.site.register(EuPro)
+admin.site.register(EuPro, EuProAdmin)
+

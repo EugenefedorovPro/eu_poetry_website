@@ -1,4 +1,5 @@
-from django.shortcuts import reverse
+# import ipdb
+from django.shortcuts import reverse, render
 from django.http import HttpResponseRedirect
 from django.http import HttpResponse
 from django.template import loader
@@ -8,26 +9,37 @@ import random
 
 
 def content(request):
-    html_name_rand_word = RandWord.make_list_html_name_rand_word()
-    template = loader.get_template("content.html")
-    context = {"html_name_rand_word": html_name_rand_word}
-    return HttpResponse(template.render(context, request))
+    verse_html_name_rand_word = RandWord.get_verse_html_name_rand_word()
+    fact_html_name_rand_word = RandWord.get_fact_html_name_rand_word()
+    context = {
+        "verse_html_name_rand_word": verse_html_name_rand_word,
+        "fact_html_name_rand_word": fact_html_name_rand_word,
+    }
+    return render(request, "content.html", context)
 
 
-def verse(request, html_name):
+def single_text(request, html_name):
     verse = RawVerses.objects.filter(html_name=html_name)
-    template = loader.get_template("verse.html")
+    # ipdb.set_trace()
+
+    if not verse:
+        fact_obj = EuPro.objects.filter(html_name=html_name).first()
+        text = fact_obj.fact
+        title = fact_obj.title
+        context = {"text": text, "title": title}
+        return render(request, "eupro.html", context)
+
     context = {"verse": verse}
-    return HttpResponse(template.render(context, request))
+    return render(request, "verse.html", context)
 
 
 def eupro(request):
     all_ids = EuPro.objects.all().values_list("id")
     rand_id = random.choice(all_ids)[0]
     text = EuPro.objects.get(id=rand_id).fact
-    context = {"text": text}
-    template = loader.get_template("eupro.html")
-    return HttpResponse(template.render(context, request))
+    title = EuPro.objects.get(id=rand_id).title
+    context = {"text": text, "title": title}
+    return render(request, "eupro.html", context)
 
 
 def back_to_content(request):
