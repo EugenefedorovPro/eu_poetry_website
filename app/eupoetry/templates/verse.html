@@ -13,7 +13,7 @@
     {% load i18n %}
     {% for item in verse %}
     <p id="title_verse">{{ item.title }}</p>
-	<p><pre id="full_verse">{{ item.verses }}</pre></p>
+	<p><pre id="full_verse">{{ item.text }}</pre></p>
     <br>
     {% language 'ru' %}
     <i>{{ item.date_of_writing|date:"d M Y" }}</i>

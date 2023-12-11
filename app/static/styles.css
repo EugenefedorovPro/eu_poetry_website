@@ -33,14 +33,18 @@ a:active { text-decoration: none; }
     width: 20vw;
 }
 
+#rand_herm {
+	margin-top: 50px;
+    width: 40vw;
+}
 
-#rand_fact {
-	margin-top: 40px;
+#rand_aesthetics {
+	margin-top: 50px;
     width: 40vw;
 }
 
 #signature {
-	margin-top: 40px;
+	margin-top: 50px;
     text-align: right;
 	font-style: italic;
     width: 40vw;

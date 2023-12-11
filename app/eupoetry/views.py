@@ -4,16 +4,18 @@ from django.http import HttpResponseRedirect
 from django.http import HttpResponse
 from django.template import loader
 from .rand_words import RandWord
-from .models import RawVerses, EuPro
+from .models import RawVerses, EuPro, Hermeneutics
 import random
 
 
 def content(request):
     verse_html_name_rand_word = RandWord.get_verse_html_name_rand_word()
     fact_html_name_rand_word = RandWord.get_fact_html_name_rand_word()
+    herm_html_name_rand_word = RandWord.get_herm_html_name_rand_word()
     context = {
         "verse_html_name_rand_word": verse_html_name_rand_word,
         "fact_html_name_rand_word": fact_html_name_rand_word,
+        "herm_html_name_rand_word": herm_html_name_rand_word,
     }
     return render(request, "content.html", context)
 
@@ -24,10 +26,13 @@ def single_text(request, html_name):
 
     if not verse:
         fact_obj = EuPro.objects.filter(html_name=html_name).first()
-        text = fact_obj.fact
+        if not fact_obj:
+            fact_obj = Hermeneutics.objects.filter(html_name=html_name).first()
+        text = fact_obj.text
         title = fact_obj.title
         context = {"text": text, "title": title}
         return render(request, "eupro.html", context)
+
 
     context = {"verse": verse}
     return render(request, "verse.html", context)
@@ -36,7 +41,7 @@ def single_text(request, html_name):
 def eupro(request):
     all_ids = EuPro.objects.all().values_list("id")
     rand_id = random.choice(all_ids)[0]
-    text = EuPro.objects.get(id=rand_id).fact
+    text = EuPro.objects.get(id=rand_id).text
     title = EuPro.objects.get(id=rand_id).title
     context = {"text": text, "title": title}
     return render(request, "eupro.html", context)
