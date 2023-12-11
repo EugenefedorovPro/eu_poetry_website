@@ -74,10 +74,11 @@ button {
     color: darkslategray;
     border-style: none;
     font-size: inherit;
+	margin-right: 2vw;
    
 }
 
-#button_link {
+.button_link {
     background-color: lightgoldenrodyellow;
     color: darkslategray;
 }

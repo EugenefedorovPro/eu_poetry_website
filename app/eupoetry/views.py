@@ -22,19 +22,21 @@ def content(request):
 
 def single_text(request, html_name):
     verse = RawVerses.objects.filter(html_name=html_name)
-    # ipdb.set_trace()
 
     if not verse:
         fact_obj = EuPro.objects.filter(html_name=html_name).first()
+
         if not fact_obj:
             fact_obj = Hermeneutics.objects.filter(html_name=html_name).first()
+
         text = fact_obj.text
         title = fact_obj.title
         context = {"text": text, "title": title}
         return render(request, "eupro.html", context)
 
-
-    context = {"verse": verse}
+    verse_obj = verse.first()
+    verse_herm = verse_obj.hermeneutics_set.all().first()
+    context = {"verse": verse, "verse_herm": verse_herm}
     return render(request, "verse.html", context)
 
 
