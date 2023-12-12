@@ -55,6 +55,7 @@ a:active { text-decoration: none; }
 i {
     display: inline-block;
     width: 40vw;
+	min-width: 315px;
     text-align: right;
 }
 
@@ -79,10 +80,10 @@ button {
 
 /* audio Plyr plugin styling */
 
-
 .plyr--audio .plyr__controls{
-    width: 40vw;
-	margin-top: 10px !important;	
+	max-width: 40vw;
+	min-width: 315px;
+	margin: 10px 0 !important;	
     border-style: none !important;
 	border-radius: 0 !important;
     background-color: lightgoldenrodyellow !important;
@@ -90,6 +91,31 @@ button {
 
 }
 
+.plyr--full-ui button, .plyr--full-ui input, .plyr--full-ui label {
+    background-color: lightgoldenrodyellow;
+}
+
+.plyr--audio .plyr__control.plyr__tab-focus, .plyr--audio .plyr__control:hover, .plyr--audio .plyr__control[aria-expanded=true] {
+    background: darkkhaki !important;
+	color: darkslategray !important;
+}
+
+.plyr--full-ui input[type=range] {
+	color: darkslategray !important;
+
+}
+
+.plyr__menu__container [role=menu] {
+    background-color: darkkhaki;
+}
+
+.plyr__menu__container>div {
+    background-color: darkkhaki;
+}
+
+.plyr__menu__container .plyr__control[role=menuitemradio][aria-checked=true]:before {
+    background-color: darkslategray;
+}
 
 
 
@@ -128,6 +154,9 @@ button {
         width: 70vw;
     }
 
+	/* .plyr--audio .plyr__controls{ */
+	/* 	width: 40vw; */
+	/* } */
 }   
 
 @media screen and (max-width: 500px) {   
@@ -148,7 +177,9 @@ button {
         width: 80vw;
     }
     
-}   
+	/* .plyr--audio .plyr__controls{ */
+	/* 	width: 70vw !important; */
+	/* } */   
 
 
 @media screen and (max-width: 350px) {   
@@ -168,4 +199,6 @@ button {
         width: 80vw;
     }
 
-}   
+	/* .plyr--audio .plyr__controls{ */
+	/* 	width: 70vw !important; */
+	/* } */   
