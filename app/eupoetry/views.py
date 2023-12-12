@@ -1,11 +1,16 @@
 # import ipdb
 from django.shortcuts import reverse, render
-from django.http import HttpResponseRedirect
-from django.http import HttpResponse
+from django.http import HttpResponseRedirect, HttpResponse, JsonResponse
 from django.template import loader
 from .rand_words import RandWord
-from .models import RawVerses, EuPro, Hermeneutics
+from .models import RawVerses, EuPro, Hermeneutics, Audio
 import random
+
+
+def audio(request):
+    audio_obj = Audio.objects.filter(html_name = html_name).first()
+    data = {"audio_obj": audio_obj}
+    return JsonResponse(data)
 
 
 def content(request):
@@ -34,9 +39,20 @@ def single_text(request, html_name):
         context = {"text": text, "title": title}
         return render(request, "eupro.html", context)
 
+    # get verse
     verse_obj = verse.first()
+
+    # get interpretation to this verse if available
     verse_herm = verse_obj.hermeneutics_set.all().first()
-    context = {"verse": verse, "verse_herm": verse_herm}
+
+    # get audio reading to this verse if available
+    verse_audio = verse_obj.audio_set.all().first()
+
+    context = {
+        "verse": verse,
+        "verse_herm": verse_herm,
+        "verse_audio": verse_audio,
+    }
     return render(request, "verse.html", context)
 
 

@@ -6,13 +6,6 @@ body, a {
 
 body {
     font-size: 0.9em;
-}
-
-#signature {
-    font-size: 0.9em;
-}
-
-body {
     background-color: darkslategray;
     margin-top: 10vh;
     margin-left: 20vw;
@@ -20,7 +13,6 @@ body {
     line-height: 200%;
 
 }
-
 
 
 /* a { color: none } */
@@ -44,6 +36,7 @@ a:active { text-decoration: none; }
 }
 
 #signature {
+    font-size: 0.9em;
 	margin-top: 50px;
     text-align: right;
 	font-style: italic;
@@ -82,6 +75,22 @@ button {
     background-color: lightgoldenrodyellow;
     color: darkslategray;
 }
+
+
+/* audio Plyr plugin styling */
+
+
+.plyr--audio .plyr__controls{
+    width: 40vw;
+	margin-top: 10px !important;	
+    border-style: none !important;
+	border-radius: 0 !important;
+    background-color: lightgoldenrodyellow !important;
+    color: darkslategray !important;
+
+}
+
+
 
 
 /* eupro */
