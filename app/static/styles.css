@@ -44,8 +44,9 @@ a:active { text-decoration: none; }
 
 /* verses */
 #verse_container {
-	min-width: 250px;
+	min-width: 220px;
 	max-width: 500px;
+	width: 80vw;
 }
 
 /* renewal to body style after style reset within <pre></pre> */
