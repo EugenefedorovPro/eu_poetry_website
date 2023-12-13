@@ -5,10 +5,10 @@ body, a {
 }
 
 body {
-    font-size: 0.9em;
+    font-size: 1em;
     background-color: darkslategray;
-    margin-top: 10vh;
-    margin-left: 20vw;
+    margin-top: 2vh;
+    margin-left: 10vw;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     line-height: 200%;
 
@@ -21,59 +21,47 @@ a:visited { color: none; }
 a:hover { color: darkkhaki; }
 a:active { text-decoration: none; }
 
-#rand_verse {
-    width: 20vw;
+.title {
+	font-size: larger;
 }
 
-#rand_herm {
-	margin-top: 50px;
-    width: 40vw;
+#rand {
+    width: 30vw;
 }
 
-#rand_aesthetics {
+#rand_herm, #rand_aesthetics {
 	margin-top: 50px;
-    width: 40vw;
 }
 
 #signature, #signature_in_longread {
-    font-size: 0.9em;
-	margin-top: 50px;
+	margin-top: 30px;
     text-align: right;
+	/* margin-right: 30px; */
 	font-style: italic;
-    width: 40vw;
+	font-size: small;
 }
 
-#signature_in_longread {
-	margin-top: 20px;
-    width: auto;
-}
 
 /* verses */
+#verse_container {
+	min-width: 250px;
+	max-width: 500px;
+}
 
+/* renewal to body style after style reset within <pre></pre> */
 #full_verse {
     width:70vw;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-/* i { */
-/*     display: inline-block; */
-/*     width: 40vw; */
-/* 	min-width: 315px; */
-/*     text-align: right; */
-/* } */
-
-#title_verse {
-    font-size: 1.4em;
-}
-
-button {
+.eu_button {
     background-color: lightgoldenrodyellow;
     color: darkslategray;
     border-style: none;
-    font-size: inherit;
 	margin-right: 2vw;
 	margin-top: 4vh;
 	margin-bottom: 2vh;
+	font-size: small;
    
 }
 
@@ -88,12 +76,12 @@ button {
 .plyr--audio .plyr__controls{
 	max-width: 40vw;
 	min-width: 315px;
-	margin: 10px 0 !important;	
+	margin-bottom: 15px !important;	
     border-style: none !important;
 	border-radius: 0 !important;
     background-color: lightgoldenrodyellow !important;
     color: darkslategray !important;
-	height: 60px;
+	height: 35px;
 
 }
 
@@ -137,84 +125,48 @@ button {
 
 /* eupro */
 #eupro_text{
-    width: 60vw;
+    width: 50vw;
 }
 
 
 /* responsive elements */
 
 @media screen and (max-width: 1000px) {
-
     body {
-        font-size: 0.8em;
-    }
-    #signature {
+        font-size: 1em;
+   }
+
+	#rand {
+		width: 50vw;
+	}
+    
+	#eupro_text{
+		width: 70vw;
+	}
+
+@media screen and (max-width: 500px) {   
+    body {
         font-size: 0.9em;
     }
 
-    body {
-        margin-top: 10vw;
-        margin-left: 10vw;
-   }
-
-    #rand_verse {
-        width:30vw;
-
-    }
-
-    /* i { */
-    /*     width:40vw; */
-    /* } */
+	#rand {
+		width: 60vw;
+	}
     
-    #eupro_text{
-        width: 70vw;
-    }
 
-	/* .plyr--audio .plyr__controls{ */
-	/* 	width: 40vw; */
-	/* } */
-}   
+	#eupro_text{
+		width: 70vw;
+	}
 
-@media screen and (max-width: 500px) {   
-    #rand_verse {
-        width:50vw;
-    }
-
+@media screen and (max-width: 350px) {   
     body {
         font-size: 0.8em;
     }
 
+	#rand {
+		width: 70vw;
+	}
 
-    /* i { */
-    /*     width:70vw; */
-    /*     } */
-
-    #eupro_text{
-        width: 80vw;
-    }
-    
-	/* .plyr--audio .plyr__controls{ */
-	/* 	width: 70vw !important; */
-	/* } */   
-
-
-@media screen and (max-width: 350px) {   
-    #rand_verse {
-        width:60vw;
-    }
-
-    body {
-        font-size: 0.7em;
-    }
-
-    /* i { */
-    /*     width:70vw; */
-    /* } */
-
-    #eupro_text{
-        width: 80vw;
-    }
-
-	/* .plyr--audio .plyr__controls{ */
-	/* 	width: 70vw !important; */
-	/* } */   
+	#eupro_text{
+		width: 70vw;
+	}

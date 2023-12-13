@@ -8,7 +8,7 @@
 {% block body %}
 
     <div id="eupro_text">
-		<h5>{{ fact_obj.title }}</h5>
+		<p class="title">{{ fact_obj.title }}<p>
 		<p>{{ fact_obj.text|linebreaks }}</p>
 
 		<div id="signature_in_longread">
@@ -22,10 +22,10 @@
     </div>
 
 
-	<button type ="button"><a class="button_link" href="back_to_content"><b>в начало</b></a></button>
+	<button class="eu_button" type ="button"><a class="button_link" href="back_to_content"><b>в начало</b></a></button>
 
 	{% if verse %}
-		<button type ="button"><a class="button_link" href="/{{verse.html_name}}"><b>стихотворение</b></a></button>
+		<button class="eu_button" type ="button"><a class="button_link" href="/{{verse.html_name}}"><b>стихотворение</b></a></button>
 	{% endif %}
 
 {% endblock %}
