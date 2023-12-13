@@ -148,7 +148,7 @@ a:active { text-decoration: none; }
 
 @media screen and (max-width: 500px) {   
     body {
-        font-size: 0.7em;
+        font-size: 0.8em;
     }
 
 	#rand {
