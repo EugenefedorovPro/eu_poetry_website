@@ -9,17 +9,24 @@
 
     <div id="eupro_text">
 		<h5>{{ fact_obj.title }}</h5>
-        <p>{{ fact_obj.text|linebreaks }}</p>
-    </div><br>
+		<p>{{ fact_obj.text|linebreaks }}</p>
 
-    <div>
-        
-        <button type ="button"><a class="button_link" href="back_to_content"><b>в начало</b></a></button>
+		<div id="signature_in_longread">
+			<i><a href="eupro">Евгений Проскуликов</a></i><br>
+			{% load i18n %}
+			{% language 'ru' %}
+				<i>{{ fact_obj.date_of_writing|date:"d M Y" }}</i>
+			{% endlanguage %}
+		</div>
 
-		{% if verse %}
-			<button type ="button"><a class="button_link" href="/{{verse.html_name}}"><b>стихотворение</b></a></button>
-		{% endif %}
     </div>
 
 
+	<button type ="button"><a class="button_link" href="back_to_content"><b>в начало</b></a></button>
+
+	{% if verse %}
+		<button type ="button"><a class="button_link" href="/{{verse.html_name}}"><b>стихотворение</b></a></button>
+	{% endif %}
+
 {% endblock %}
+

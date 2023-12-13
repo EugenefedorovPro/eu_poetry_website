@@ -7,8 +7,10 @@ from .models import RawVerses, EuPro, Hermeneutics, Audio
 import random
 
 def list_verses(request):
-    verses = RawVerses.objects.all()
-    context = {"verses": verses}
+    verses = RawVerses.objects.all().order_by("-date_of_writing")
+    herms = Hermeneutics.objects.all().order_by("-date_of_writing")
+    aesths = EuPro.objects.all().order_by("-date_of_writing")
+    context = {"verses": verses, "herms": herms, "aesths": aesths}
     return render(request, "list_verses.html", context)
 
 
@@ -35,7 +37,10 @@ def single_text(request, html_name):
 
         if not fact_obj:
             fact_obj = Hermeneutics.objects.filter(html_name=html_name).first()
-            verse = fact_obj.raw_verses
+            try:
+                verse = fact_obj.raw_verses
+            except AttributeError:
+                pass
 
         context = {"fact_obj": fact_obj, "verse": verse}
         return render(request, "eupro.html", context)
@@ -50,7 +55,7 @@ def single_text(request, html_name):
     verse_audio = verse_obj.audio_set.all().first()
 
     context = {
-        "verse": verse,
+        "verse_obj": verse_obj,
         "verse_herm": verse_herm,
         "verse_audio": verse_audio,
     }
@@ -60,9 +65,8 @@ def single_text(request, html_name):
 def eupro(request):
     all_ids = EuPro.objects.all().values_list("id")
     rand_id = random.choice(all_ids)[0]
-    text = EuPro.objects.get(id=rand_id).text
-    title = EuPro.objects.get(id=rand_id).title
-    context = {"text": text, "title": title}
+    fact_obj = EuPro.objects.get(id=rand_id)
+    context = {"fact_obj": fact_obj}
     return render(request, "eupro.html", context)
 
 

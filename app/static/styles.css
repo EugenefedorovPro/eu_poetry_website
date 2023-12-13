@@ -35,7 +35,7 @@ a:active { text-decoration: none; }
     width: 40vw;
 }
 
-#signature {
+#signature, #signature_in_longread {
     font-size: 0.9em;
 	margin-top: 50px;
     text-align: right;
@@ -43,7 +43,10 @@ a:active { text-decoration: none; }
     width: 40vw;
 }
 
-
+#signature_in_longread {
+	margin-top: 20px;
+    width: auto;
+}
 
 /* verses */
 
@@ -52,12 +55,12 @@ a:active { text-decoration: none; }
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-i {
-    display: inline-block;
-    width: 40vw;
-	min-width: 315px;
-    text-align: right;
-}
+/* i { */
+/*     display: inline-block; */
+/*     width: 40vw; */
+/* 	min-width: 315px; */
+/*     text-align: right; */
+/* } */
 
 #title_verse {
     font-size: 1.4em;
@@ -69,6 +72,7 @@ button {
     border-style: none;
     font-size: inherit;
 	margin-right: 2vw;
+	margin-top: 4vh;
 	margin-bottom: 2vh;
    
 }
@@ -158,9 +162,9 @@ button {
 
     }
 
-    i {
-        width:40vw;
-    }
+    /* i { */
+    /*     width:40vw; */
+    /* } */
     
     #eupro_text{
         width: 70vw;
@@ -181,9 +185,9 @@ button {
     }
 
 
-    i {
-        width:70vw;
-        }
+    /* i { */
+    /*     width:70vw; */
+    /*     } */
 
     #eupro_text{
         width: 80vw;
@@ -203,9 +207,9 @@ button {
         font-size: 0.7em;
     }
 
-    i {
-        width:70vw;
-    }
+    /* i { */
+    /*     width:70vw; */
+    /* } */
 
     #eupro_text{
         width: 80vw;

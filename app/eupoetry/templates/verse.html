@@ -9,19 +9,20 @@
 
 {% block body %}
 
+	<!-- verse -->
+	<p id="title_verse">{{ verse_obj.title }}</p>
+	<p><pre id="full_verse">{{ verse_obj.text }}</pre></p>
+
+	<!-- date and signature -->
     {% load i18n %}
-    {% for item in verse %}
-    <p id="title_verse">{{ item.title }}</p>
-	<p><pre id="full_verse">{{ item.text }}</pre></p>
-    <br>
-    {% language 'ru' %}
-    <i>{{ item.date_of_writing|date:"d M Y" }}</i>
-    {% endlanguage %}
-    <br>
-    {% endfor %}
+	<div id="signature">
+		<p><a href = "eupro">Евгений Проскуликов<a></p>
+		{% language 'ru' %}
+			<i>{{ item.date_of_writing|date:"d M Y" }}</i>
+		{% endlanguage %}
+	</div>
 
-
-    <i><a href="eupro">Евгений Проскуликов</a></i>
+	<!-- buttons -->
     <div>
         <br>
         <button type ="button"><a class="button_link" href="back_to_content"><b>в начало</b></a></button>

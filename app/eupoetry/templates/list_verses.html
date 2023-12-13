@@ -3,22 +3,87 @@
 
 {% block head %}
     <title>Список</title>
+	<link rel="stylesheet" href="{% static 'tabs.css' %}">
+	{% load i18n %}
 {% endblock %}
 
 {% block body %}
 
-    <div id = "rand_verse">
-		{% for verse in verses %}
-			<a href=/"{{ verse.html_name }}">{{ verse.title }}<a><br>
-
-		{% endfor %}
-
 
     </div>
+		<ul class="nav nav-tabs mb-3" id="pills-tab" role="tablist">
+			<li class="nav-item" role="presentation">
+				<button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Поэзия</button>
+			</li>
+
+			<li class="nav-item" role="presentation">
+				<button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Герменевтика</button>
+			</li>
+
+			<li class="nav-item" role="presentation">
+				<button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Эстетика</button>
+			</li>
+		</ul>
 
 
-	<div id="signature">
-		<p><a href = "eupro">Евгений Проскуликов<a></p>
+		{% language 'ru' %}
+
+			<div class="tab-content" id="pills-tabContent">
+				<div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
+
+							{% for verse in verses %}
+								<div class="verse_title_line">
+									<a href=/{{ verse.html_name }}>{{ verse.title }} ({{ verse.date_of_writing|date:"d M Y" }})
+
+										{% if verse.hermeneutics_set.all %}
+												<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-earmark-text" viewBox="0 0 16 16">
+												<path d="M5.5 7a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1zM5 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5"/>
+												<path d="M9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.5zm0 1v2A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"/>
+												</svg>
+										{% endif %}
+
+										{% if verse.audio_set.all %}
+												<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-mic" viewBox="0 0 16 16">
+												<path d="M3.5 6.5A.5.5 0 0 1 4 7v1a4 4 0 0 0 8 0V7a.5.5 0 0 1 1 0v1a5 5 0 0 1-4.5 4.975V15h3a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1h3v-2.025A5 5 0 0 1 3 8V7a.5.5 0 0 1 .5-.5"/>
+												<path d="M10 8a2 2 0 1 1-4 0V3a2 2 0 1 1 4 0zM8 0a3 3 0 0 0-3 3v5a3 3 0 0 0 6 0V3a3 3 0 0 0-3-3"/>
+												</svg>
+										{% endif %}
+
+									<a>
+								</div>
+
+
+							{% endfor %}
+
+				</div>
+
+				<div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
+					<div id = "herm">
+						{% for herm in herms %}
+							<a href=/{{ herm.html_name }}>{{ herm.title }} ({{ herm.date_of_writing|date:"d M Y" }})<a><br>
+						{% endfor %}
+					</div>
+				</div>
+
+				<div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab" tabindex="0">
+
+					<div id = "aesths">
+						{% for aesth in aesths %}
+							<a href=/{{ aesth.html_name }}>{{ aesth.title }} ({{ aesth.date_of_writing|date:"d M Y" }})<a><br>
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+
+		{% endlanguage %}
+
+	<div id="signature_in_longread">
+		<i><a href="eupro">Евгений Проскуликов</a></i>
 	</div>
+
+	</div>
+
+	
+<!-- bootstrap icons -->
 
 {% endblock %}

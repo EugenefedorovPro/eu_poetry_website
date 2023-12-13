@@ -1,0 +1,12 @@
+/* tabs */
+
+.nav-link {
+	color: lightgoldenrodyellow !important;
+}
+
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+	border-radius: 0 !important;
+	background-color: lightgoldenrodyellow !important;
+	color: darkslategray !important;
+}
