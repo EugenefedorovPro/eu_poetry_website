@@ -53,6 +53,7 @@ a:active { text-decoration: none; }
 #full_verse {
     width:70vw;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-size: inherit;
 }
 
 .eu_button {
@@ -147,7 +148,7 @@ a:active { text-decoration: none; }
 
 @media screen and (max-width: 500px) {   
     body {
-        font-size: 0.9em;
+        font-size: 0.7em;
     }
 
 	#rand {
@@ -161,7 +162,7 @@ a:active { text-decoration: none; }
 
 @media screen and (max-width: 350px) {   
     body {
-        font-size: 0.8em;
+        font-size: 0.7em;
     }
 
 	#rand {
