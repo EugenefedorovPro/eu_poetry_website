@@ -6,6 +6,7 @@ from . import views
 
 urlpatterns = [
     path("", views.content, name="content"),
+    path("list_verse/", views.list_verses, name="list_verses"),
     path("<str:html_name>/", views.single_text, name="single_text"),
 
     re_path(

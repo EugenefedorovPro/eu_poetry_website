@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+  <link rel="stylesheet" href="{% static 'styles.css' %}">
+  <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
+  <head>
+    <title>Список</title>
+    <meta name="Eugene Proskulikov" content="random verse">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+
+    <div id = "rand_verse">
+		{% for verse in verses %}
+			<a href=/"{{ verse.html_name }}">{{ verse.title }}<a><br>
+
+		{% endfor %}
+
+
+    </div>
+
+
+	<div id="signature">
+		<p><a href = "eupro">Евгений Проскуликов<a></p>
+	</div>
+
+
+  </body>
+</html>

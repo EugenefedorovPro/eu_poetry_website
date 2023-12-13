@@ -95,9 +95,15 @@ button {
     background-color: lightgoldenrodyellow;
 }
 
-.plyr--audio .plyr__control.plyr__tab-focus, .plyr--audio .plyr__control:hover, .plyr--audio .plyr__control[aria-expanded=true] {
+.plyr--audio .plyr__control:hover {
     background: darkkhaki !important;
 	color: darkslategray !important;
+}
+
+.plyr--audio .plyr__control:focus-visible {
+    background: darkkhaki !important;
+	color: darkslategray !important;
+	outline: none !important;
 }
 
 .plyr--full-ui input[type=range] {
@@ -114,7 +120,11 @@ button {
 }
 
 .plyr__menu__container .plyr__control[role=menuitemradio][aria-checked=true]:before {
-    background-color: darkslategray;
+    background-color: darkslategray !important;
+}
+
+.plyr--audio .plyr__control[aria-expanded=true] {
+    background: darkslategray !important;
 }
 
 

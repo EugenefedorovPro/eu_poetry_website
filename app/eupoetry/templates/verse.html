@@ -27,10 +27,12 @@
     <div>
         <br>
         <button type ="button"><a class="button_link" href="back_to_content"><b>в начало</b></a></button>
+
 		{% if verse_herm %}
 			<button type ="button"><a class="button_link" href="/{{verse_herm.html_name}}"><b>герменевтика</b></a></button>
-		{% endif %}<br>
+		{% endif %}
 
+        <button type ="button"><a class="button_link" href="/list_verse"><b>к списку</b></a></button>
 
 		{% if verse_audio %}
 			<div id="audio_player">

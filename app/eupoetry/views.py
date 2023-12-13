@@ -6,11 +6,10 @@ from .rand_words import RandWord
 from .models import RawVerses, EuPro, Hermeneutics, Audio
 import random
 
-
-def audio(request):
-    audio_obj = Audio.objects.filter(html_name = html_name).first()
-    data = {"audio_obj": audio_obj}
-    return JsonResponse(data)
+def list_verses(request):
+    verses = RawVerses.objects.all()
+    context = {"verses": verses}
+    return render(request, "list_verses.html", context)
 
 
 def content(request):
