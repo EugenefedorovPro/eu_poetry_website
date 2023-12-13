@@ -25,6 +25,9 @@ def content(request):
 
 
 def single_text(request, html_name):
+    # selection between verse, herm, and eupro is based in type of url
+    # herm = herm_<name>
+    # possible issue, when they have the same url
     verse = RawVerses.objects.filter(html_name=html_name)
 
     if not verse:
@@ -32,10 +35,9 @@ def single_text(request, html_name):
 
         if not fact_obj:
             fact_obj = Hermeneutics.objects.filter(html_name=html_name).first()
+            verse = fact_obj.raw_verses
 
-        text = fact_obj.text
-        title = fact_obj.title
-        context = {"text": text, "title": title}
+        context = {"fact_obj": fact_obj, "verse": verse}
         return render(request, "eupro.html", context)
 
     # get verse

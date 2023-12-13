@@ -1,15 +1,11 @@
+{% extends "base.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="ru">
-  <link rel="stylesheet" href="{% static 'styles.css' %}">
-  <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
-  <head>
+
+{% block head %}
     <title>Список</title>
-    <meta name="Eugene Proskulikov" content="random verse">
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  </head>
-  <body>
+{% endblock %}
+
+{% block body %}
 
     <div id = "rand_verse">
 		{% for verse in verses %}
@@ -25,6 +21,4 @@
 		<p><a href = "eupro">Евгений Проскуликов<a></p>
 	</div>
 
-
-  </body>
-</html>
+{% endblock %}

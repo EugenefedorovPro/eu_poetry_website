@@ -1,16 +1,14 @@
+{% extends "base.html" %}
 {% load static %}
 <!DOCTYPE html>
-<html lang='ru'>
-<link rel="stylesheet" href="{% static 'styles.css' %}">
-<link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
-<link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css">
-<head>
+
+{% block head %}
+	<link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css">
     <title>поэзия</title>
-    <meta name="author" content="John Doe">
-    <meta name='viewport' content="width=device-width, initial-scale=1.0">
-    <meta charset='utf-8'>
-</head>
-<body>
+{% endblock %}
+
+{% block body %}
+
     {% load i18n %}
     {% for item in verse %}
     <p id="title_verse">{{ item.title }}</p>
@@ -55,5 +53,4 @@
     });
 </script>
 
-</body>
-</html>
+{% endblock %}

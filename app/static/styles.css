@@ -69,6 +69,7 @@ button {
     border-style: none;
     font-size: inherit;
 	margin-right: 2vw;
+	margin-bottom: 2vh;
    
 }
 
@@ -88,6 +89,7 @@ button {
 	border-radius: 0 !important;
     background-color: lightgoldenrodyellow !important;
     color: darkslategray !important;
+	height: 60px;
 
 }
 

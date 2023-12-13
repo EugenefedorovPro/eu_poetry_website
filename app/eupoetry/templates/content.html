@@ -1,25 +1,22 @@
+{% extends "base.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="ru">
-  <link rel="stylesheet" href="{% static 'styles.css' %}">
-  <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
-  <head>
+
+{% block head %}
     <title>точка сборки</title>
-    <meta name="Eugene Proskulikov" content="random verse">
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  </head>
-  <body>
+{% endblock %}
+
+
+{% block body %}
 
     <div id = "rand_verse">
-	<h3>Поэзия</h3>
+	<h5>Поэзия</h5>
 		{% for html_name, rand_word in verse_html_name_rand_word %}
 			<span><a href = {{ html_name }}>{{ rand_word }}</a></span>
 		{% endfor %}
     </div>
 
     <div id = "rand_herm">
-	<h3>Герменевтика</h3>
+	<h5>Герменевтика</h5>
 		{% for html_name, rand_word in herm_html_name_rand_word%}
 			<span><a href = {{ html_name }}>{{ rand_word }}</a></span>
 		{% endfor %}
@@ -28,7 +25,7 @@
     </div>
 
     <div id = "rand_aesthetics">
-	<h3>Эстетика</h3>
+	<h5>Эстетика</h5>
 
 		{% for html_name, rand_word in fact_html_name_rand_word %}
 			<span><a href = {{ html_name }}>{{ rand_word }}</a></span>
@@ -41,5 +38,4 @@
 	</div>
 
 
-  </body>
-</html>
+{% endblock %}

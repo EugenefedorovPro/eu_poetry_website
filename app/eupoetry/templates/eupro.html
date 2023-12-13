@@ -1,23 +1,25 @@
+{% extends "base.html" %}
 {% load static %}
 <!DOCTYPE html>
-<html lang='ru'>
-<link rel="stylesheet" href="{% static 'styles.css' %}">
-<link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
-<head>
+{% block head %}
     <title>эссе</title>
-    <meta name="Eugene Proskulikv" content="poetics">
-    <meta name='viewport' content="width=device-width, initial-scale=1.0">
-    <meta charset='utf-8'>
-</head>
-<body>
+{% endblock %}
+
+{% block body %}
+
     <div id="eupro_text">
-		<h3>{{ title }}</h3>
-        <p>{{ text|linebreaks }}</p>
-    </div>
+		<h5>{{ fact_obj.title }}</h5>
+        <p>{{ fact_obj.text|linebreaks }}</p>
+    </div><br>
+
     <div>
-        <br>
+        
         <button type ="button"><a class="button_link" href="back_to_content"><b>в начало</b></a></button>
+
+		{% if verse %}
+			<button type ="button"><a class="button_link" href="/{{verse.html_name}}"><b>стихотворение</b></a></button>
+		{% endif %}
     </div>
 
-</body>
-</html>
+
+{% endblock %}
