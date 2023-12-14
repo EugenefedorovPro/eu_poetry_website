@@ -11,14 +11,14 @@
 	<div id="rand">
 
 		<div id = "rand_verse">
-			<p class="title"><a href=/list_verse>Поэзия</a><p>
+			<p class="title"><a href="/list_verse?tab=verses">Поэзия</a><p>
 			{% for html_name, rand_word in verse_html_name_rand_word %}
 				<span><a href = {{ html_name }}>{{ rand_word }}</a></span>
 			{% endfor %}
 		</div>
 
 		<div id = "rand_herm">
-			<p class="title"><a href=/list_verse>Герменевтика</a><p>
+			<p class="title"><a href="/list_verse?tab=herms">Герменевтика</a><p>
 			{% for html_name, rand_word in herm_html_name_rand_word%}
 				<span><a href = {{ html_name }}>{{ rand_word }}</a></span>
 			{% endfor %}
@@ -27,7 +27,7 @@
 		</div>
 
 		<div id = "rand_aesthetics">
-			<p class="title"><a href=/list_verse>Эстетика</a><p>
+			<p class="title"><a href="/list_verse?tab=aesths">Эстетика</a><p>
 
 			{% for html_name, rand_word in fact_html_name_rand_word %}
 				<span><a href = {{ html_name }}>{{ rand_word }}</a></span>

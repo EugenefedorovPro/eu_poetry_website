@@ -7,10 +7,11 @@ from .models import RawVerses, EuPro, Hermeneutics, Audio
 import random
 
 def list_verses(request):
+    tab = request.GET.get("tab")
     verses = RawVerses.objects.all().order_by("-date_of_writing")
     herms = Hermeneutics.objects.all().order_by("-date_of_writing")
     aesths = EuPro.objects.all().order_by("-date_of_writing")
-    context = {"verses": verses, "herms": herms, "aesths": aesths}
+    context = {"verses": verses, "herms": herms, "aesths": aesths, "tab": tab}
     return render(request, "list_verses.html", context)
 
 
