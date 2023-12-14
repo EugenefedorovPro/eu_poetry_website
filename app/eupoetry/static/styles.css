@@ -5,22 +5,14 @@ body, a {
 }
 
 body {
-    font-size: 0.9em;
-}
-
-#signature {
-    font-size: 0.9em;
-}
-
-body {
+    font-size: 1em;
     background-color: darkslategray;
-    margin-top: 10vh;
-    margin-left: 20vw;
+    margin-top: 2vh;
+    margin-left: 10vw;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     line-height: 200%;
 
 }
-
 
 
 /* a { color: none } */
@@ -29,129 +21,154 @@ a:visited { color: none; }
 a:hover { color: darkkhaki; }
 a:active { text-decoration: none; }
 
-#rand_verse {
-    width: 20vw;
+.title {
+	font-size: larger;
 }
 
-
-#rand_fact {
-	margin-top: 40px;
-    width: 40vw;
+#rand {
+    width: 30vw;
 }
 
-#signature {
-	margin-top: 40px;
+#rand_herm, #rand_aesthetics {
+	margin-top: 50px;
+}
+
+#signature, #signature_in_longread {
+	margin-top: 30px;
     text-align: right;
+	/* margin-right: 30px; */
 	font-style: italic;
-    width: 40vw;
+	font-size: small;
 }
-
 
 
 /* verses */
+#verse_container {
+	min-width: 220px;
+	max-width: 500px;
+	width: 80vw;
+}
 
+/* renewal to body style after style reset within <pre></pre> */
 #full_verse {
     width:70vw;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-size: inherit;
 }
 
-i {
-    display: inline-block;
-    width: 40vw;
-    text-align: right;
-}
-
-#title_verse {
-    font-size: 1.4em;
-}
-
-button {
+.eu_button {
     background-color: lightgoldenrodyellow;
     color: darkslategray;
     border-style: none;
-    font-size: inherit;
+	margin-right: 2vw;
+	margin-top: 4vh;
+	margin-bottom: 2vh;
+	font-size: small;
    
 }
 
-#button_link {
+.button_link {
     background-color: lightgoldenrodyellow;
     color: darkslategray;
 }
+
+
+/* audio Plyr plugin styling */
+
+.plyr--audio .plyr__controls{
+	max-width: 40vw;
+	min-width: 315px;
+	margin-bottom: 15px !important;	
+    border-style: none !important;
+	border-radius: 0 !important;
+    background-color: lightgoldenrodyellow !important;
+    color: darkslategray !important;
+	height: 35px;
+
+}
+
+.plyr--full-ui button, .plyr--full-ui input, .plyr--full-ui label {
+    background-color: lightgoldenrodyellow;
+}
+
+.plyr--audio .plyr__control:hover {
+    background: darkkhaki !important;
+	color: darkslategray !important;
+}
+
+.plyr--audio .plyr__control:focus-visible {
+    background: darkkhaki !important;
+	color: darkslategray !important;
+	outline: none !important;
+}
+
+.plyr--full-ui input[type=range] {
+	color: darkslategray !important;
+
+}
+
+.plyr__menu__container [role=menu] {
+    background-color: darkkhaki;
+}
+
+.plyr__menu__container>div {
+    background-color: darkkhaki;
+}
+
+.plyr__menu__container .plyr__control[role=menuitemradio][aria-checked=true]:before {
+    background-color: darkslategray !important;
+}
+
+.plyr--audio .plyr__control[aria-expanded=true] {
+    background: darkslategray !important;
+}
+
 
 
 /* eupro */
 #eupro_text{
-    width: 60vw;
+    width: 50vw;
 }
 
 
 /* responsive elements */
 
 @media screen and (max-width: 1000px) {
-
     body {
-        font-size: 0.8em;
-    }
-    #signature {
-        font-size: 0.9em;
-    }
-
-    body {
-        margin-top: 10vw;
-        margin-left: 10vw;
+        font-size: 1em;
    }
 
-    #rand_verse {
-        width:30vw;
-
-    }
-
-    i {
-        width:40vw;
-    }
+	#rand {
+		width: 50vw;
+	}
     
-    #eupro_text{
-        width: 70vw;
-    }
-
-}   
+	#eupro_text{
+		width: 70vw;
+	}
 
 @media screen and (max-width: 500px) {   
-    #rand_verse {
-        width:50vw;
-    }
-
     body {
         font-size: 0.8em;
     }
 
-
-    i {
-        width:70vw;
-        }
-
-    #eupro_text{
-        width: 80vw;
-    }
+	#rand {
+		width: 60vw;
+	}
     
-}   
 
+	#eupro_text{
+		width: 70vw;
+	}
 
 @media screen and (max-width: 350px) {   
-    #rand_verse {
-        width:60vw;
-    }
-
     body {
         font-size: 0.7em;
     }
 
-    i {
-        width:70vw;
-    }
+	#rand {
+		width: 70vw;
+	}
 
-    #eupro_text{
-        width: 80vw;
-    }
-
-}   
+	#eupro_text{
+		width: 70vw;
+	}

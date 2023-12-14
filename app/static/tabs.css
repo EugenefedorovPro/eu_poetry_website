@@ -1,9 +1,6 @@
-/* tabs */
-
 .nav-link {
 	color: lightgoldenrodyellow !important;
 }
-
 
 .nav-tabs .nav-link.active, .nav-tabs .show>.nav-link {
 	border-radius: 0 !important;
@@ -19,21 +16,3 @@
 	border-radius: 0 !important;
 }
 
-
-/* .verse_title_line { */
-/*     display: flex; /1* This will align the child elements inline *1/ */
-/*     align-items: center; /1* This will vertically center the items in the line *1/ */
-/*     justify-content: flex-start; /1* This will align the items to the start of the line *1/ */
-/*     gap: 10px; /1* This adds some space between the items *1/ */
-/* } */
-
-/* .verse_title_line a, */
-/* .verse_title_line svg { */
-/*     display: inline-block; /1* Makes sure that anchor tags and SVGs are also inline *1/ */
-/*     vertical-align: middle; /1* Aligns the text and SVGs vertically in the middle *1/ */
-/* } */
-
-/* /1* Optional: To prevent line breaks within your verse title and date *1/ */
-/* .verse_title_line a { */
-/*     white-space: nowrap; */
-/* } */
