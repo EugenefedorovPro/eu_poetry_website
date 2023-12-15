@@ -94,6 +94,11 @@
 	let pillsVersesTab = document.getElementById("pills-verses-tab");
 	let pillHermsTab = document.getElementById("pills-herms-tab");
 	let pillAesthsTab = document.getElementById("pills-aesths-tab");
+
+	let pillsVersesPane = document.getElementById("pills-verses");
+	let pillHermsPane = document.getElementById("pills-herms");
+	let pillAesthsPane = document.getElementById("pills-aesths");
+
 		switch (tabJs) {
 			case "verses":
 				break;
@@ -102,12 +107,16 @@
 				pillsVersesTab.setAttribute("area-selected", "false");
 				pillHermsTab.classList.add("active");
 				pillHermsTab.setAttribute("area-selected", "true");
+				pillsVersesPane.classList.remove("active", "show");
+				pillHermsPane.classList.add("active", "show");
 				break;
 			case "aesths":
 				pillsVersesTab.classList.remove("active");
 				pillsVersesTab.setAttribute("area-selected", "false");
 				pillAesthsTab.classList.add("active");
 				pillAesthsTab.setAttribute("area-selected", "true");
+				pillsVersesPane.classList.remove("active", "show");
+				pillAesthsPane.classList.add("active", "show");
 				break;
 		};
 
