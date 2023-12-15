@@ -1,69 +1,84 @@
 /* content */
 
-body, a {
-    color:lightgoldenrodyellow;
-}
+/* body, a { */
+/*     color:lightgoldenrodyellow; */
+/* } */
 
 body {
-    font-size: 1em;
+    color:lightgoldenrodyellow;
+    /* font-size: 1em; */
     background-color: darkslategray;
-    margin-top: 2vh;
-    margin-left: 10vw;
+    /* margin-top: 2vh; */
+    /* margin-left: 10vw; */
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    line-height: 200%;
+    /* line-height: 200%; */
 
 }
 
+.content_col {
+	max-width: 450px;
+}
 
 /* a { color: none } */
-a:link { text-decoration: none; }
-a:visited { color: none; }
-a:hover { color: darkkhaki; }
-a:active { text-decoration: none; }
-
-.title {
-	font-size: larger;
+a {
+	color: lightgoldenrodyellow;
+}
+a:link {
+	text-decoration: none;
+}
+a:visited {
+	color: none;
+}
+a:hover {
+	color: darkkhaki;
+}
+a:active {
+	text-decoration: none;
 }
 
-#rand {
-    width: 30vw;
-}
+/* .title { */
+/* 	font-size: larger; */
+/* } */
 
-#rand_herm, #rand_aesthetics {
-	margin-top: 50px;
-}
+/* #rand { */
+/*     width: 30vw; */
+/* } */
 
-#signature, #signature_in_longread {
-	margin-top: 30px;
-    text-align: right;
-	/* margin-right: 30px; */
-	font-style: italic;
-	font-size: small;
-}
+/* #rand_herm, #rand_aesthetics { */
+/* 	margin-top: 50px; */
+/* } */
+
+/* #signature, #signature_in_longread { */
+/* 	margin-top: 30px; */
+/*     text-align: right; */
+/* 	/1* margin-right: 30px; *1/ */
+/* 	font-style: italic; */
+/* 	font-size: small; */
+/* } */
 
 
-/* verses */
-#verse_container {
-	min-width: 220px;
-	max-width: 500px;
-	width: 80vw;
-}
+/* /1* verses *1/ */
+/* #verse_container { */
+/* 	min-width: 220px; */
+/* 	max-width: 500px; */
+/* 	width: 80vw; */
+/* } */
 
-/* renewal to body style after style reset within <pre></pre> */
-#full_verse {
-    width:70vw;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-	font-size: inherit;
-}
+/* /1* renewal to body style after style reset within <pre></pre> *1/ */
+/* #full_verse { */
+/*     width:70vw; */
+/*     font-family: Verdana, Geneva, Tahoma, sans-serif; */
+/* 	font-size: inherit; */
+/* } */
 
 .eu_button {
     background-color: lightgoldenrodyellow;
     color: darkslategray;
     border-style: none;
-	margin-right: 2vw;
-	margin-top: 4vh;
-	margin-bottom: 2vh;
-	font-size: small;
+	/* margin-right: 2vw; */
+	/* margin-top: 4vh; */
+	/* margin-bottom: 2vh; */
+	/* font-size: small; */
    
 }
 
@@ -126,49 +141,49 @@ a:active { text-decoration: none; }
 
 
 /* eupro */
-#eupro_text{
-    width: 50vw;
-}
+/* #eupro_text{ */
+/*     width: 50vw; */
+/* } */
 
 
 /* responsive elements */
 
-@media screen and (max-width: 1000px) {
-    body {
-        font-size: 1em;
-   }
+/* @media screen and (max-width: 1000px) { */
+/*     body { */
+/*         font-size: 1em; */
+/*    } */
 
-	#rand {
-		width: 50vw;
-	}
+/* 	#rand { */
+/* 		width: 50vw; */
+/* 	} */
     
-	#eupro_text{
-		width: 70vw;
-	}
+/* 	#eupro_text{ */
+/* 		width: 70vw; */
+/* 	} */
 
-@media screen and (max-width: 500px) {   
-    body {
-        font-size: 0.8em;
-    }
+/* @media screen and (max-width: 500px) { */   
+/*     body { */
+/*         font-size: 0.8em; */
+/*     } */
 
-	#rand {
-		width: 60vw;
-	}
+/* 	#rand { */
+/* 		width: 60vw; */
+/* 	} */
     
 
-	#eupro_text{
-		width: 70vw;
-	}
+/* 	#eupro_text{ */
+/* 		width: 70vw; */
+/* 	} */
 
-@media screen and (max-width: 350px) {   
-    body {
-        font-size: 0.7em;
-    }
+/* @media screen and (max-width: 350px) { */   
+/*     body { */
+/*         font-size: 0.7em; */
+/*     } */
 
-	#rand {
-		width: 70vw;
-	}
+/* 	#rand { */
+/* 		width: 70vw; */
+/* 	} */
 
-	#eupro_text{
-		width: 70vw;
-	}
+/* 	#eupro_text{ */
+/* 		width: 70vw; */
+/* 	} */

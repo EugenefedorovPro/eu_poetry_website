@@ -1,4 +1,5 @@
 # import ipdb
+import markdown2
 from django.shortcuts import reverse, render
 from django.http import HttpResponseRedirect, HttpResponse, JsonResponse
 from django.template import loader
@@ -38,12 +39,18 @@ def single_text(request, html_name):
 
         if not fact_obj:
             fact_obj = Hermeneutics.objects.filter(html_name=html_name).first()
+            fact_html = markdown2.markdown(fact_obj.text)
+
             try:
                 verse = fact_obj.raw_verses
             except AttributeError:
                 pass
 
-        context = {"fact_obj": fact_obj, "verse": verse}
+        context = {
+            "fact_obj": fact_obj,
+            "fact_html": fact_html,
+            "verse": verse,
+        }
         return render(request, "eupro.html", context)
 
     # get verse

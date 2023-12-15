@@ -8,38 +8,40 @@
 
 {% block body %}
 
-	<div id="rand">
+<div class="container p-5">
+    <div class="row mt-3 content_col">
+      <div class="col">
+		<h5><a href="/list_verse?tab=verses">Поэзия</a></h5>
+		{% for html_name, rand_word in verse_html_name_rand_word %}
+			<span><a href = {{ html_name }}>{{ rand_word }}</a></span>
+		{% endfor %}
+      </div>
+    </div>
 
-		<div id = "rand_verse">
-			<p class="title"><a href="/list_verse?tab=verses">Поэзия</a><p>
-			{% for html_name, rand_word in verse_html_name_rand_word %}
-				<span><a href = {{ html_name }}>{{ rand_word }}</a></span>
-			{% endfor %}
-		</div>
+    <div class="row mt-4">
+      <div class="col content_col">
+		<h5><a href="/list_verse?tab=herms">Герменевтика</a></h5>
+		{% for html_name, rand_word in herm_html_name_rand_word%}
+			<span><a href = {{ html_name }}>{{ rand_word }}</a></span>
+		{% endfor %}
+      </div>
+    </div>
 
-		<div id = "rand_herm">
-			<p class="title"><a href="/list_verse?tab=herms">Герменевтика</a><p>
-			{% for html_name, rand_word in herm_html_name_rand_word%}
-				<span><a href = {{ html_name }}>{{ rand_word }}</a></span>
-			{% endfor %}
+    <div class="row mt-4">
+      <div class="col content_col">
+		<h5><a href="/list_verse?tab=aesths">Эстетика</a></h5>
+		{% for html_name, rand_word in fact_html_name_rand_word %}
+			<span><a href = {{ html_name }}>{{ rand_word }}</a></span>
+		{% endfor %}
+      </div>
+    </div>
 
+    <div class="row mt-5">
+      <div class="col content_col">
+			<p class="text-end me-5 fs-8"><a href = "eupro">Евгений Проскуликов<a></p>
+      </div>
+    </div>
 
-		</div>
-
-		<div id = "rand_aesthetics">
-			<p class="title"><a href="/list_verse?tab=aesths">Эстетика</a><p>
-
-			{% for html_name, rand_word in fact_html_name_rand_word %}
-				<span><a href = {{ html_name }}>{{ rand_word }}</a></span>
-			{% endfor %}
-
-		</div>
-
-		<div id="signature">
-			<p><a href = "eupro">Евгений Проскуликов<a></p>
-		</div>
-
-	</div>
-
+</div>	
 
 {% endblock %}

@@ -10,7 +10,7 @@
     <div id="eupro_text">
 		<p class="title">{{ fact_obj.title }}<p>
 
-		<p><pre id="longread">{{ fact_obj.text|linebreaks }}</pre></p>
+		<span>{{ fact_html|safe }}</span>
 
 		<div id="signature_in_longread">
 			<i><a href="eupro">Евгений Проскуликов</a></i><br>
