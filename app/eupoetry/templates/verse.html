@@ -8,42 +8,52 @@
 {% endblock %}
 
 {% block body %}
+	<div class="container p-5">
 
-	<div id="verse_container">
-		<!-- verse -->
-		<p class="title">{{ verse_obj.title }}<p>
-		<p><pre id="full_verse">{{ verse_obj.text }}</pre></p>
+		<div class="row mt-3">
+			<div class="col content_col">
+				<p>{{ verse_html|safe }}</p>
+			</div>
+		</div>
 
-		<!-- date and signature -->
-		{% load i18n %}
-		<div id="signature">
-			{% language 'ru' %}
-			<i>{{ verse_obj.date_of_writing|date:"d M Y" }}</i><br>
-			{% endlanguage %}
-			<a href = "eupro">Евгений Проскуликов<a>
+		<div class="row">
+			<div class="col content_col my-3 text-end me-5 fs-8">
+				{% load i18n %}
+				<div id="signature">
+					{% language 'ru' %}
+					<i>{{ verse_obj.date_of_writing|date:"d M Y" }}</i><br>
+					{% endlanguage %}
+					<a href = "eupro">Евгений Проскуликов<a>
+				</div>
+			</div>
+		</div>
+
+		<div class="row mt-3">
+			<div class="col content_col">
+
+				<div>
+					<button class="eu_button" type ="button"><a class="button_link" href="back_to_content"><b>в начало</b></a></button>
+
+					{% if verse_herm %}
+						<button class="eu_button" type ="button"><a class="button_link" href="/{{verse_herm.html_name}}"><b>герменевтика</b></a></button>
+					{% endif %}
+
+					<button class="eu_button" type ="button"><a class="button_link" href="/list_verse"><b>к списку</b></a></button>
+
+					{% if verse_audio %}
+						<div id="audio_player" class="mt-3">
+							<audio controls>
+								<source src="{{ verse_audio.audio.url }}" type="audio/mp3">
+								Your browser does not support the audio tag.
+							</audio>
+						</div>
+					{% endif %}
+				</div>
+
+			</div>
 		</div>
 	</div>
 
-	<!-- buttons -->
-    <div>
-        <button class="eu_button" type ="button"><a class="button_link" href="back_to_content"><b>в начало</b></a></button>
-
-		{% if verse_herm %}
-			<button class="eu_button" type ="button"><a class="button_link" href="/{{verse_herm.html_name}}"><b>герменевтика</b></a></button>
-		{% endif %}
-
-        <button class="eu_button" type ="button"><a class="button_link" href="/list_verse"><b>к списку</b></a></button>
-
-		{% if verse_audio %}
-			<div id="audio_player">
-				<audio controls>
-					<source src="{{ verse_audio.audio.url }}" type="audio/mp3">
-					Your browser does not support the audio tag.
-				</audio>
-			</div>
-		{% endif %}
-
-    </div>
 
 
 <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>

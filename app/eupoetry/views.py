@@ -1,11 +1,10 @@
 # import ipdb
+import random
 import markdown2
 from django.shortcuts import reverse, render
-from django.http import HttpResponseRedirect, HttpResponse, JsonResponse
-from django.template import loader
+from django.http import HttpResponseRedirect
 from .rand_words import RandWord
-from .models import RawVerses, EuPro, Hermeneutics, Audio
-import random
+from .models import RawVerses, EuPro, Hermeneutics
 
 def list_verses(request):
     tab = request.GET.get("tab")
@@ -33,18 +32,23 @@ def single_text(request, html_name):
     # herm = herm_<name>
     # possible issue, when they have the same url
     verse = RawVerses.objects.filter(html_name=html_name)
+    # ipdb.set_trace()
 
     if not verse:
         fact_obj = EuPro.objects.filter(html_name=html_name).first()
-
-        if not fact_obj:
-            fact_obj = Hermeneutics.objects.filter(html_name=html_name).first()
+        if fact_obj:
             fact_html = markdown2.markdown(fact_obj.text)
 
+        elif not fact_obj:
+            fact_obj = Hermeneutics.objects.filter(html_name=html_name).first()
+            if fact_obj:
+                fact_html = markdown2.markdown(fact_obj.text)
             try:
                 verse = fact_obj.raw_verses
             except AttributeError:
                 pass
+        else:
+            fact_html = "<span>что-то пошло не так<span>"
 
         context = {
             "fact_obj": fact_obj,
@@ -55,6 +59,7 @@ def single_text(request, html_name):
 
     # get verse
     verse_obj = verse.first()
+    verse_html = markdown2.markdown(verse_obj.text)
 
     # get interpretation to this verse if available
     verse_herm = verse_obj.hermeneutics_set.all().first()
@@ -64,6 +69,7 @@ def single_text(request, html_name):
 
     context = {
         "verse_obj": verse_obj,
+        "verse_html": verse_html,
         "verse_herm": verse_herm,
         "verse_audio": verse_audio,
     }
@@ -74,7 +80,8 @@ def eupro(request):
     all_ids = EuPro.objects.all().values_list("id")
     rand_id = random.choice(all_ids)[0]
     fact_obj = EuPro.objects.get(id=rand_id)
-    context = {"fact_obj": fact_obj}
+    fact_html = markdown2.markdown(fact_obj.text)
+    context = {"fact_obj": fact_obj, "fact_html": fact_html}
     return render(request, "eupro.html", context)
 
 

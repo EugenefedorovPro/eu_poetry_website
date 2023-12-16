@@ -7,27 +7,43 @@
 
 {% block body %}
 
-    <div id="eupro_text">
-		<p class="title">{{ fact_obj.title }}<p>
 
-		<span>{{ fact_html|safe }}</span>
+<div class="container p-5">
+    <div class="row mt-3">
+        <div class="col prose_col">
+			{{ fact_html|safe }}
+        </div>
+    </div>
 
-		<div id="signature_in_longread">
+    <div class="row">
+        <div class="col prose_col my-3 text-end me-5 fs-8">
 			<i><a href="eupro">Евгений Проскуликов</a></i><br>
 			{% load i18n %}
 			{% language 'ru' %}
 				<i>{{ fact_obj.date_of_writing|date:"d M Y" }}</i>
 			{% endlanguage %}
 		</div>
-
     </div>
 
+    <div class="row">
+        <div class="col prose_col mt-3">
+			<button class="eu_button" type ="button"><a class="button_link" href="back_to_content"><b>в начало</b></a></button>
 
-	<button class="eu_button" type ="button"><a class="button_link" href="back_to_content"><b>в начало</b></a></button>
+			{% if verse %}
+				<button class="eu_button" type ="button"><a class="button_link" href="/{{verse.html_name}}"><b>стихотворение</b></a></button>
+			{% endif %}
+        </div>
+    </div>
 
-	{% if verse %}
-		<button class="eu_button" type ="button"><a class="button_link" href="/{{verse.html_name}}"><b>стихотворение</b></a></button>
-	{% endif %}
+</div>
+
+
+
+
+
+
+
+
 
 {% endblock %}
 
