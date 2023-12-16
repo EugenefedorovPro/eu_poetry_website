@@ -10,8 +10,10 @@
 {% block body %}
 
 
+<div class="container py-3 ps-3">
+    <div class="row">
+        <div class="col">
 
-    </div>
 		<ul class="nav nav-tabs mb-3" id="pills-tab" role="tablist">
 			<li class="nav-item" role="presentation">
 				<button class="nav-link active" id="pills-verses-tab" data-bs-toggle="pill" data-bs-target="#pills-verses" type="button" role="tab" aria-controls="pills-verses" aria-selected="true">Поэзия</button>
@@ -26,7 +28,12 @@
 			</li>
 		</ul>
 
+		</div>
+	</div>
 
+
+    <div class="row">
+        <div class="col">
 		{% language 'ru' %}
 
 			<div class="tab-content" id="pills-tabContent">
@@ -78,16 +85,29 @@
 
 		{% endlanguage %}
 
-	</div>
-
-
-	<div id="eupro_text">
-		<div id="signature">
-			<p><a href = "eupro">Евгений Проскуликов<a></p>
 		</div>
 	</div>
 
-	<button class="eu_button" type ="button"><a class="button_link" href="back_to_content"><b>в начало</b></a></button>
+
+    <div class="row mt-3">
+        <div class="col">
+
+			<div id="eupro_text">
+				<div id="signature">
+					<p><a href = "eupro">Евгений Проскуликов<a></p>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+
+    <div class="row mt-3">
+        <div class="col">
+			<button class="eu_button" type ="button"><a class="button_link" href="back_to_content"><b>в начало</b></a></button>
+		</div>
+	</div>
+</div>
 
 <script>
 	let tabJs = "{{ tab }}";
