@@ -7,6 +7,10 @@ body {
 
 }
 
+h5 {
+	margin-bottom: 20px;
+}
+
 pre code {
     color:lightgoldenrodyellow;
     background-color: darkslategray;
