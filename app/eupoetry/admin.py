@@ -1,6 +1,13 @@
 from django.contrib import admin
-from .models import RawVerses, EuPro, Hermeneutics, Audio
+from .models import RawVerses, EuPro, Hermeneutics, Audio, Reclamation, AnswerToReclamation
 
+
+class Reclamation(admin.ModelAdmin):
+    list_display = ["text"]
+
+
+class AnswerToReclamation(admin.ModelAdmin):
+    list_display = ["reclamation", "text"]
 
 class RawVersesAdmin(admin.ModelAdmin):
     fieldsets = [

@@ -1,10 +1,12 @@
 services:
+
   django_gunicorn:
-    image: eugene8pro/eupoetry:1.0
+    build:
+      context: ./app
     env_file:
       - ./.env
     environment:
-      - ENV=production 
+      - ENV=development
     volumes: 
       - static_volume:/home/eugene/static/
       - db_volume:/home/eugene/db/
@@ -13,11 +15,12 @@ services:
 
   nginx:
     build:
-      context: ./nginx_prod
+      context: ./nginx_dev
     env_file:
-      - ./.env # .env file is in .gitignore, it should be manually set in the same directory as docker-compose.yaml
+      - ./.env
+
     environment:
-      - ENV=production 
+      - ENV=development
     volumes: 
       - static_volume:/home/eugene/static/
     ports:

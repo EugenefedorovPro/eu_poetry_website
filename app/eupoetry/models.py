@@ -1,4 +1,12 @@
+from typing_extensions import CapsuleType
 from django.db import models
+
+class Reclamation(models.Model):
+    text = models.TextField(default="")
+
+class AnswerToReclamation(models.Model):
+    reclamation = models.ForeignKey("Reclamation", on_delete=models.CASCADE, default="")
+    text = models.TextField(default="")
 
 
 class RawVerses(models.Model):
