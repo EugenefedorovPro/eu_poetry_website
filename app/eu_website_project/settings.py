@@ -19,19 +19,19 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
-if os.environ.get("ENV") == "development":
-    print("ENV:", os.environ.get("ENV"))
+if os.environ.get("DEBUG") == "True":
+    print("DEBUG", os.environ.get("DEBUG"))
     SECRET_KEY = '12345678'
     print('SECRET_KEY:', SECRET_KEY)
     DEBUG = True
-    print("DEBUG:", DEBUG)
+    print("DEBUG =", DEBUG)
     ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS").split(",")
     print("ALLOWED_HOSTS:", ALLOWED_HOSTS)
     CSRF_TRUSTED_ORIGINS = os.getenv("CSRF_TRUSTED_ORIGINS").split(",")
     print("CSRF_TRUSTED_ORIGINS", CSRF_TRUSTED_ORIGINS)
 
-elif os.environ.get("ENV") == "production":
-    print("ENV:", os.environ.get("ENV"))
+elif os.environ.get("DEBUG") == "False":
+    print("DEBUG = ", os.environ.get("DEBUG"))
     SECRET_KEY = os.getenv("SECRET_KEY")
     DEBUG = False
     print("DEBUG:", DEBUG)
