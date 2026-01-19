@@ -2,11 +2,13 @@ from django.contrib import admin
 from .models import RawVerses, EuPro, Hermeneutics, Audio, Reclamation, AnswerToReclamation
 
 
-class Reclamation(admin.ModelAdmin):
+@admin.register(Reclamation)
+class ReclamationAdmin(admin.ModelAdmin):
     list_display = ["text"]
 
 
-class AnswerToReclamation(admin.ModelAdmin):
+@admin.register(AnswerToReclamation)
+class AnswerToReclamationAdmin(admin.ModelAdmin):
     list_display = ["reclamation", "text"]
 
 class RawVersesAdmin(admin.ModelAdmin):
@@ -33,4 +35,3 @@ admin.site.register(RawVerses, RawVersesAdmin)
 admin.site.register(EuPro, EuProAdmin)
 admin.site.register(Hermeneutics, HermeneuticsAdmin)
 admin.site.register(Audio)
-
